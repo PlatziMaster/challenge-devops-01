@@ -14,3 +14,10 @@ services:
       dockerfile: Dockerfile
     ports:
     - '3000:3000'
+  react:
+    image: 'react:latest'
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+    - '8000:8000'
