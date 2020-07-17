@@ -6,7 +6,7 @@ RUN pip install -U Flask
 
 COPY . /app/
 
-ENV FLASK_APP=app/app.py
+ENV FLASK_APP=app.py
 ENV FLASK_DEBUG=1
 ENV FLASK_ENV=development
 
