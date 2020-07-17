@@ -14,3 +14,9 @@ services:
       dockerfile: Dockerfile
     ports:
     - '3000:3000'
+  nest-api:
+    build:
+      context: ./nest-api
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3001'
