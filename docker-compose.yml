@@ -5,7 +5,7 @@ services:
     volumes:
       - ./laravel:/var/www/html
     ports:
-      - '8087:80'
+      - '8088:80'
   flask:
     build:
       context: ./flask
