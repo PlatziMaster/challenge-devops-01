@@ -6,7 +6,7 @@ services:
       - ./laravel:/var/www/html
     ports:
       - '8088:80'
-  flask:
+flask:
     image: 'flask:latest'
     build:
       context: ./flask
