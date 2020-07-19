@@ -1,5 +1,11 @@
 version: '3.3'
 services:
+  laravel:
+    image: dagume/nginx-php7.3-ideasoft:latest
+    volumes:
+      - ./laravel:/var/www/html
+    ports:
+      - '8087:80'
   flask:
     build:
       context: ./flask
@@ -12,3 +18,4 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
+  
