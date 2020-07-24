@@ -10,6 +10,8 @@ services:
     deploy:
       mode: replicated
       replicas: 5
+      placement:
+        max_replicas_per_node: 2
   express:
     image: 'express:latest'
     build:
@@ -20,3 +22,5 @@ services:
     deploy:
       mode: replicated
       replicas: 5
+      placement:
+        max_replicas_per_node: 2
