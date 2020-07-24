@@ -11,7 +11,7 @@ services:
       mode: replicated
       replicas: 5
       placement:
-        max_replicas_per_node: 2
+        constraints: [node.role == worker]
   express:
     image: 'express:latest'
     build:
@@ -23,4 +23,4 @@ services:
       mode: replicated
       replicas: 5
       placement:
-        max_replicas_per_node: 2
+        constraints: [node.role == worker]
