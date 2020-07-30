@@ -8,6 +8,8 @@ services:
     deploy:
       mode: replicated
       replicas: 5
+      placement:
+        constraints: [node.role==worker]
   express:
     image: 'express:latest'
     ports:
@@ -15,3 +17,5 @@ services:
     deploy:
       mode: replicated
       replicas: 5
+      placement:
+        constraints: [node.role==worker]
