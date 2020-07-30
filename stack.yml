@@ -5,7 +5,13 @@ services:
     image: 'flask:latest'
     ports:
       - '8888:8888'
+    deploy:
+      mode: replicated
+      replicas: 5
   express:
     image: 'express:latest'
     ports:
       - '3000:3000'
+    deploy:
+      mode: replicated
+      replicas: 5
