@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  flask:
+    image: 'flask:latest'
+    ports:
+      - '8888:8888'
+  express:
+    image: 'express:latest'
+    ports:
+      - '3000:3000'
