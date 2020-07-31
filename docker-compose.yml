@@ -1,12 +1,14 @@
 version: '3.3'
 services:
   flask:
+    image: 'api-flask:latest'
     build:
       context: ./flask
       dockerfile: Dockerfile
     ports:
       - '8888:8888'
   express:
+    image: 'api-express:latest'
     build:
       context: ./express
       dockerfile: Dockerfile

@@ -2,7 +2,7 @@ version: '3'
 
 services:
   flask:
-    image: 'flask:latest'
+    image: 'nicobytes/flask:latest'
     ports:
       - '8888:8888'
     deploy:
@@ -11,7 +11,7 @@ services:
       placement:
         constraints: [node.role==worker]
   express:
-    image: 'express:latest'
+    image: 'nicobytes/express:latest'
     ports:
       - '3000:3000'
     deploy:
