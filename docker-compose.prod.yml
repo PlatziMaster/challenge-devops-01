@@ -7,22 +7,16 @@ services:
     ports:
       - '8088:80'
   flask:
-    image: 'nicobytes/api-flask:latest'
+    image: 'flask:latest'
     build:
       context: ./flask
       dockerfile: Dockerfile
     ports:
       - '8888:8888'
   express:
-    image: 'nicobytes/api-express:latest'
+    image: 'express:latest'
     build:
       context: ./express
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
-  django:
-    build:
-      context: ./django
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
+    - '3000:3000'
