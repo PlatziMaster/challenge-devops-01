@@ -41,3 +41,9 @@ services:
     depends_on:
       - flask
       - express
+  react:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'

@@ -36,3 +36,10 @@ services:
     depends_on:
       - flask
       - express
+  react:
+    image: 'react:latest'
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+    - '8000:8000'
