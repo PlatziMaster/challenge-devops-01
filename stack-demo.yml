@@ -3,13 +3,23 @@ version: '3'
 services:
   flask:
     image: 'nicobytes/flask:latest'
-    ports:
-      - '8888:8888'
     deploy:
       mode: replicated
       replicas: 5
-      placement:
-        constraints: [node.role==worker]
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.flask-http.rule=Host(`nicobytes.site`)
+        - traefik.http.routers.flask-http.entrypoints=http
+        - traefik.http.routers.flask-https.rule=Host(`nicobytes.site`)
+        - traefik.http.routers.flask-https.entrypoints=https
+        - traefik.http.routers.flask-https.tls=true
+        - traefik.http.routers.flask-https.tls.certresolver=le
+        - traefik.http.services.flask.loadbalancer.server.port=8888
+    networks:
+      - traefik-public
+      - default
   express:
     image: 'nicobytes/express:latest'
     ports:
@@ -17,5 +27,16 @@ services:
     deploy:
       mode: replicated
       replicas: 5
-      placement:
-        constraints: [node.role==worker]
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.flask.rule=Host(`flask.nicobytes.site`)
+    networks:
+      - traefik-public
+      - default
+
+
+networks:
+  traefik-public:
+    external: true
